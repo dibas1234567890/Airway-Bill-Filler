@@ -5,11 +5,11 @@ from fillpdf import fillpdfs
 from awbfillerapp.models import airwayBill
 
 class pdfExport(View):
-    def exporter(request):
+    def exporter(request, id):
         file_path = 'Air Waybill Form _ Printable Template (4).pdf'
         form_fields = list(fillpdfs.get_form_fields(file_path))
         # print(form_fields)
-        ShippingInfo = airwayBill.objects.get(pk=1)
+        ShippingInfo = airwayBill.objects.get(pk=id)
 
         form_fields_mapping = {
     'Text-shipper-name': ShippingInfo.shipper_name,

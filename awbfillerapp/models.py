@@ -3,7 +3,7 @@ from django.db import models
 class airwayBill(models.Model):
     shipper_name = models.CharField(max_length=255, null=True, blank=True, default = '')
     shipper_address = models.TextField(blank=True, default = '')
-    awb_no = models.CharField(max_length=100, null=True, blank=True, default = '')
+    awb_no = models.CharField(max_length=100, unique=True,null=True, blank=True, default = '')
     issued_by = models.CharField(max_length=100, blank=True, default = '')
     consignee_name = models.CharField(max_length=255, blank=True, default = '') 
     consignee_address = models.TextField(blank=True, default = '')
@@ -68,4 +68,6 @@ class airwayBill(models.Model):
 
     def __str__(self):
         return f'AWB No: {self.awb_no} - Shipper: {self.shipper_name}'
+    class Meta: 
+        ordering = ['-id']
   
