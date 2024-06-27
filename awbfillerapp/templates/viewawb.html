@@ -25,6 +25,16 @@
                                 Airway Bill No
                             </th>
                             <th>
+                                Consignee
+                            </th>
+                            <th>
+                                Shipper
+                            </th>
+                            <th>
+                                Date
+                            </th>
+
+                            <th>
                                 Download
                             </th>
                     </thead>
@@ -35,6 +45,15 @@
                         </td>
                         <td>
                             {{ airwayBill.awb_no }}
+                        </td>
+                        <td>
+                            {{ airwayBill.consignee_name }}
+                        </td>
+                        <td>
+                            {{ airwayBill.shipper_name }}
+                        </td>
+                        <td>
+                            {{ airwayBill.flight_date }}
                         </td>
                         <td>
                             <a href="{% url 'export' id=airwayBill.id  %} "><button> Download PDF </button></a>
